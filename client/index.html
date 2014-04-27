@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hyperspectral Image Search</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="js/jquery-ui-1.9.2.custom/css/ui-lightness/jquery-ui-1.9.2.custom.min.css" />
+        <link href="js/nvd3/src/nv.d3.css" rel="stylesheet" type="text/css">
+        <script src="js/openlayers/lib/OpenLayers.js"></script>
+        <script src="js/jquery-1.8.1.min.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="js/lawnchair/Lawnchair.js"></script>
+        <script src="js/lawnchair/adapters/dom.js"></script>
+        <script src="js/lawnchair/plugins/query.js"></script>
+        <script src="js/jquery.tablesorter.min.js"></script>
+        <script src="js/openlayers_local.js"></script>
+        <script src="js/hsi_event_listeners.js"></script>
+        <!--nvd3-->
+        <script src="js/nvd3/lib/d3.v3.js"></script>
+        <script src="js/nvd3/nv.d3.js"></script>
+        <script src="js/nvd3/src/tooltip.js"></script>
+        <script src="js/nvd3/src/utils.js"></script>
+        <script src="js/nvd3/src/interactiveLayer.js"></script>
+        <script src="js/nvd3/src/models/legend.js"></script>
+        <script src="js/nvd3/src/models/axis.js"></script>
+        <script src="js/nvd3/src/models/scatter.js"></script>
+        <script src="js/nvd3/src/models/line.js"></script>
+        <script src="js/nvd3/src/models/lineChart.js"></script>
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="logos"></div>
+                <div id="title">HSIFind</div>
+            </div>
+            <div id="app_wrapper">
+                <h3 id="vname">Loading...</h3>
+                <div id="share"><a href="#"></a></div>
+                <div id="map">
+                </div>
+                
+                <div id="spectrum">
+                    <div class="spectrum_pane" id="spectrum_viewer">
+                        <div id="right_spec">Spectrum Viewer</div>
+                        <h3>Spectrum <a href="#">Hide</a></h3>
+                        <div id="spec_img">
+                            <div id="save_icon"></div>
+                            <svg id="specSvg"></svg>
+                            <div id="specContinuum"></div>
+                        </div>
+                        <div id="show_library_button">My Spectrum Library</div>
+                    </div>
+                    <div class="spectrum_pane" id="spectrum_library">
+                        <div class="right_spec">Spectrum Library <a href="#"></a></div>
+
+                        <div id="spec_lib">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="thumbs">
+                    <div id="prev"></div>
+                    <div id="slides">
+                        <div id="slidetray"></div>
+                    </div>
+                    <div id="next"></div>
+                </div>
+            </div>
+            <div id="footer"></div>
+        </div>
+        <div id="greybox"></div>
+        <div id="loading"></div>
+        <div id="choose_a_name">
+            <input type="text" placeholder="Enter a Name..." />
+            <div class="submit_button">Save</div>
+            <div class="cancel_button">Cancel</div>
+        </div>
+    </body>
+</html>

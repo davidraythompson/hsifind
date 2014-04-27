@@ -1,0 +1,24 @@
+HSIFind 0.9 BETA
+BUILD DATE: 07/15/2013
+Smith, Alexander, JPL 2013
+Alexander.Smith@jpl.nasa.gov
+
+****TO INSTALL THE CLIENT FRONT END:
+
+Inside js/openlayers_local.js, line 16:
+MODIFY var serv10n_serverBase without a following slash to match the 
+server where you have the service running i.e.: 
+var serv10n_serverBase = 'http://mipldevwebify1:18080';
+
+Note that if you have serv10n mapped to another subdirectory structure than /service/hsifind 
+You may have to modify var hsi in js/openlayers_local.js, line 11:
+hsi = new hsiFind(serv10n_serverBase+'/service/hsifind/','map');
+
+CHANGES V0.9
+1. Shift + click yields multiple point searches
+2. Added URL param for "continuum", which is a string passed in via you as &continuum=2.0,2.25,0.05
+
+****ROADMAP:
+1. (implemented 0.9) Hold shift to select multiple spectra
+2. Convert client app code structure from prototypal inheritance into Twitter Flight framework for longterm maintainability
+3. Float array for plot provided as numeric array and drawn in the client by d3.js or other framework

@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+from passepartout.lister import Lister
+from passepartout.inputifier import Inputifier
+from passepartout.factory import ApplicationFactory
+
+import sys
+
+def main():
+    if len(sys.argv) < 6:
+        print >> sys.stderr, "Usage: workDirTop resultUrlTop appConfDir appName auri [debug]"
+        sys.exit(-1)
+
+    debug = False
+    if len(sys.argv) > 6 and sys.argv[6] != "":
+        debug = True
+
+    workDirTop, resultUrlTop, appConfDir, appName, auri = sys.argv[1:6]
+    if debug:
+        print workDirTop, appConfDir, appName, auri
+
+    appFactory = ApplicationFactory(appConfDir, debug=debug)
+    #app = appFactory.get(appName, workDirTop=workDirTop, resultUrlTop="/tmp/p10t/result")
+    app = appFactory.get(appName, workDirTop=workDirTop, resultUrlTop=resultUrlTop)
+
+    if auri == "":
+        d = app.info()
+    else:
+        i8r = Inputifier.from_auri(auri)
+        d = app.do(ordered=i8r.ordered, keyed=i8r.keyed)
+    print d
+
+if __name__ == "__main__":
+    main()

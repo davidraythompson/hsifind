@@ -1,0 +1,55 @@
+How to Install, Set up, and Configure
+
+20120516, xing
+
+20120512, xing
+
+20120416, xing
+ 
+(1) Dependencies
+
+(*) objconfig
+(*) simplejson if your python is 2.5 or less.
+(*) echo-0.9.3.tar.gz for testing
+
+(2) Install
+
+First, install passepartout-x.x.x.tar.gz to your python env.
+
+(3) Create a dir to host application config files
+
+Choose a dir to host config files of backend applications.
+Sample config files are available under
+./sample/application/conf/* inside passepartout-x.x.x.tar.gz
+
+(3) Configure passepartout for apache
+
+Copy ./conf/cgi.passepartout.conf in tarball passepartout-x.x.x.tar.gz
+to apache's conf.d dir and modify its content for your environment.
+
+Most importantly, in this file, you need to
+
+(a) set up environment variable SERV10N_APP_CONF_DIR
+which points to the dir that you created in step (3) above
+
+(b) set up directive ScriptAlias to the location of
+installed */passepartout/wsgi/index.py (result of step (2) above), next
+modify the very first line in the index.py file to the path of
+python executable of your python env and make sure it is executable too.
+
+This runs service as CGI.
+
+Use ./conf/wsgi.passepartout.conf if running service as WSGI.
+
+(5) Test
+
+restart apache and point your browse to, e.g. (trailing "/" is important),
+
+(*) http://localhost:8080/service/
+which shall list usages of all available applications
+
+(*) http://localhost:8080/service/echo/
+which shall list the usage of an application based on python module echo
+
+(*) http://localhost:8080/service/echo1/
+which shall list the usage of an application based on bash script echo1

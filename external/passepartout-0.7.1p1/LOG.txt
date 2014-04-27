@@ -1,0 +1,120 @@
+------
+v0.7.1p1
+
+20130731, xing
+(*) remove eval from inputifier.py main in order to pass security scan.
+
+------
+v0.7.1
+
+20120629, xing
+(*) small fix in executable.py, so that no guessing about sh or csh script.
+(*) If the method is GET, args are packed as an auri and each segment of
+the auri has to be url-encoded/quoted by client, so that the auri can be
+safely passed as part of the requesting url. Accordingly, server needs to
+url-decode/unquote the auri in order to obtain original args.
+This is now done in passepartout/inputifier.py
+Furthermore, if running on apache httpd, this directive must be used:
+AllowEncodedSlashes NoDecode
+which is only avaiable in httpd 2.2.18 and later. Here are some refs:
+http://httpd.apache.org/docs/2.2/mod/core.html#allowencodedslashes
+https://issues.apache.org/bugzilla/show_bug.cgi?id=35256
+http://stackoverflow.com/questions/4390436/need-to-allow-encoded-slashes-on-apache
+
+------
+v0.7.0
+
+20120618
+(*) get_application() is removed from backend.py, while
+get_name() and get_version() are added.
+
+------
+v0.6.2
+
+20120601
+(*) fix bugs in ./wsgi/index.py and ./executable.py
+
+20120531
+(*) add support of description to *.ini file
+
+------
+v0.6.1
+
+20120531
+(*) graceful import of json and hashlib
+
+------
+v0.6.0
+
+20120529
+(*) enhance file.py to copy to a destUrl via w10n write.
+
+------
+v0.4.0
+
+20120526
+(*) response is formalized as a dict. For executable type, one member is
+result:{"stdout":*, "stderr":*, "files":*}
+(*) these env vars are introduced for wsgi/cgi:
+PASSEPARTOUT_APP_CONF_DIR
+PASSEPARTOUT_WORK_DIR_TOP
+PASSEPARTOUT_RESULT_URI_PREFIX
+check ./conf/cgi.passepartout.conf for details.
+
+------
+v0.3.0
+
+20120516
+(*) handler.py => factory.py
+
+------
+v0.2.0
+
+20120514
+(*) some code reorganization
+
+------
+v0.1.3
+
+20120510, xing
+(*) POST support added
+(*) concept of identifier introduced and identifier.py added
+(*) sxn.py added
+
+20120506, xing
+(*) more concrete url syntax described in ./doc/url_syntax.txt
+(*) add support of JSONP
+
+------
+v0.1.2
+
+20120424, xing
+(*) better handling of returned result for executable.py
+
+------
+v0.1.1
+
+20120419, xing
+(*) add INSTALL.txt
+
+------
+v0.1.0
+
+20120412, xing
+(*) backend config file uses INI format
+(*) add support of type = executable
+
+------
+v0.0.2
+
+20110420, xing
+(*) {error:...} introduced for more friendly error report
+
+20110413, xing
+(*) add usage response when queryString is empty.
+
+------
+v0.0.1
+
+20110319, xing
+(*) initial version

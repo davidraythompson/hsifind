@@ -1,0 +1,21 @@
+include AUTHORS.txt
+#include FAQS.txt
+include INSTALL.txt
+include LICENSE.txt
+include LOG.txt
+include TODO.txt
+#
+include MANIFEST.in
+#
+recursive-include doc *.txt
+#
+recursive-include passepartout *.py
+#
+#recursive-include sample *.sh *.csh
+recursive-include sample *.sh *.conf
+#
+recursive-include conf *.conf
+#
+recursive-include test *.sh
+#
+#recursive-include data readme *.txt

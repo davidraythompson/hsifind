@@ -1,0 +1,4 @@
+# 20120412, xing, a bug to be fixed:
+# when run as cgi, environ['SCRIPT_URI'] does not exist
+# when run as wsgi, environ['REQUEST_URI'] does not exist?
+# they must be reconciled.

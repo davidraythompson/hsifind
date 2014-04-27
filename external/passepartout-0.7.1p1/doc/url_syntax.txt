@@ -1,0 +1,23 @@
+20120502, xing
+
+(*) http://host:port/service
+returns list of applications in more descriptive text
+
+(*) http://host:port/service/
+returns list of applications as json array
+
+(*) http://host:port/service/app
+returns usage of the app as in more descriptive text
+
+(*) http://host:port/service/app/
+returns usage of the app as json array
+
+(*) http://host:port/service/app""identifier
+returns result in json
+(a) if GET, identifier is like
+/k0=v0/k1=v1/k2=v2/.../arg0/arg1/arg2/...
+and each segment like arg0, arg1, etc., must be url-encoded/quoted.
+(b) if POST, identifier is like
+/md5sum
+message body is a json object with memeber "ordered" and "keyed"
+md5sum is its md5 digest
